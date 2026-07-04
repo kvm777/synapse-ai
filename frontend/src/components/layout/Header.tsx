@@ -1,3 +1,5 @@
+"use client";
+
 import { Menu, Bell, Search } from "lucide-react";
 
 type HeaderProps = {
@@ -10,18 +12,17 @@ export default function Header({
 }: HeaderProps) {
   return (
     <header
-      className="flex h-16 items-center justify-between border-b px-6"
+      className="sticky top-0 z-50 flex h-16 items-center justify-between border-b bg-slate-950/60 px-6 backdrop-blur-2xl"
       style={{
-        backgroundColor: "var(--surface)",
-        borderColor: "var(--border)",
+        borderColor: "rgba(255,255,255,.08)",
       }}
     >
       <div className="flex items-center gap-4">
         <button
           onClick={onToggle}
-          className="rounded-lg p-2 transition hover:bg-white/5"
+          className="rounded-xl p-2 transition-all duration-300 hover:bg-white/10 hover:text-[var(--accent)]"
         >
-          <Menu size={20} />
+          <Menu size={22} />
         </button>
 
         <h1
@@ -32,16 +33,14 @@ export default function Header({
         </h1>
       </div>
 
-      <div className="flex items-center gap-5">
-        <Search
-          className="cursor-pointer transition hover:scale-110"
-          size={20}
-        />
+      <div className="flex items-center gap-3">
+        <button className="rounded-xl p-2 transition-all duration-300 hover:bg-white/10 hover:text-[var(--accent)]">
+          <Search size={20} />
+        </button>
 
-        <Bell
-          className="cursor-pointer transition hover:scale-110"
-          size={20}
-        />
+        <button className="rounded-xl p-2 transition-all duration-300 hover:bg-white/10 hover:text-[var(--accent)]">
+          <Bell size={20} />
+        </button>
 
         <div
           className="h-10 w-10 rounded-full"
