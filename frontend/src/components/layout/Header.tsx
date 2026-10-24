@@ -1,6 +1,7 @@
 "use client";
 
 import { Menu, Bell, Search } from "lucide-react";
+import Link from "next/link";
 
 type HeaderProps = {
   collapsed: boolean;
@@ -25,12 +26,14 @@ export default function Header({
           <Menu size={22} />
         </button>
 
-        <h1
-          className="text-xl font-semibold"
-          style={{ color: "var(--accent)" }}
-        >
-          Synapse AI
-        </h1>
+        <Link href="/">
+          <h1
+            className="text-xl font-semibold"
+            style={{ color: "var(--accent)" }}
+          >
+            Synapse AI
+          </h1>
+        </Link>
       </div>
 
       <div className="flex items-center gap-3">
