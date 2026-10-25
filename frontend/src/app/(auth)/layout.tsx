@@ -20,6 +20,7 @@ export default function AppLayout({
       <Header
         collapsed={collapsed}
         onToggle={() => setCollapsed(!collapsed)}
+        isLoggedIn={false}
       />
 
 

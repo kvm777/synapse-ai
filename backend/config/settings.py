@@ -38,6 +38,9 @@ ALLOWED_HOSTS = env.list("DJANGO_ALLOWED_HOSTS")
 # Application definition
 
 INSTALLED_APPS = [
+    # Enable CORS support for frontend API requests
+    "corsheaders",
+
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -51,6 +54,9 @@ INSTALLED_APPS = [
 ]
 
 MIDDLEWARE = [
+    # Add CORS headers before Django processes requests
+    "corsheaders.middleware.CorsMiddleware",
+
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -155,3 +161,8 @@ REST_FRAMEWORK = {
         "rest_framework_simplejwt.authentication.JWTAuthentication",
     ],
 }
+
+# Allow requests from the local Next.js frontend
+CORS_ALLOWED_ORIGINS = [
+    "http://localhost:3000",
+]
